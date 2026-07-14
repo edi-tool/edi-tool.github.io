@@ -1,0 +1,173 @@
+---
+layout: null
+title: 編集・制作の実務ツール集
+description: 教育書・出版の編集実務向けの無料Webツール集。漢字の学年判定、表外漢字の検出、表記ゆれの統一、ページ数・背幅の概算。すべてブラウザ内で完結し、ファイルは外部送信しません。
+lang: ja
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f6f2">
+
+    <title>edi-tool | {{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://edi-tool.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="edi-tool | {{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="https://edi-tool.github.io/">
+    <meta property="og:image" content="https://edi-tool.github.io/favicon.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        /* ===== 共通デザイントークン（事務ツール5種で統一） ===== */
+        :root {
+            --bg: #f8f6f2;
+            --surface: #fff;
+            --border: #e0e0e0;
+            --text: #0f0f0f;
+            --text-sub: #757575;
+            --accent: #f28c06;
+            --accent-dark: #d97a00;
+            --accent-soft: #fff8f0;
+            --danger: #e53935;
+        }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            letter-spacing: -0.4px;
+            font-feature-settings: "liga";
+            word-break: break-all;
+            overflow-wrap: break-word;
+            line-break: strict;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px 16px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .lead {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        /* Tool Cards */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+        .tool-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .tool-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .tool-card:active { transform: translateY(0); }
+        .tool-name {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+        .tool-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: var(--text-sub);
+            text-align: center;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "edi-tool",
+      "url": "https://edi-tool.github.io/",
+      "description": "教育書・出版の編集実務向けの無料Webツール集。すべてブラウザ内で完結します。",
+      "inLanguage": "ja"
+    }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>edi-tool</h1>
+            <p class="lead">教育書・出版の編集実務向け、ブラウザ完結の無料ツール集。<br>ファイルは外部送信しません。</p>
+        </header>
+
+        <main class="tool-grid">
+            <a class="tool-card" href="https://edi-tool.github.io/edu-kanji-checker/">
+                <p class="tool-name">教育漢字さん</p>
+                <p class="tool-desc">PDF・Word 内の漢字を、小学校での学習学年別に分類して表示します。教材づくりやテキスト選定に。</p>
+            </a>
+            <a class="tool-card" href="https://edi-tool.github.io/kanji-checker/">
+                <p class="tool-name">常用漢字さん</p>
+                <p class="tool-desc">PDF・Word 内の常用漢字外（表外漢字）を検出し、文脈つきで指摘します。人名用漢字も判別。</p>
+            </a>
+            <a class="tool-card" href="https://edi-tool.github.io/hyoki-checker/">
+                <p class="tool-name">表記統一さん</p>
+                <p class="tool-desc">文章中の表記ゆれを検出・統一します。辞書ベース／ファジー／形態素解析に対応。</p>
+            </a>
+            <a class="tool-card" href="https://edi-tool.github.io/page-count/">
+                <p class="tool-name">ページ調整さん</p>
+                <p class="tool-desc">暫定ページ数から台割りに合うページ数を提案し、背幅を概算します。入稿前の確認に。</p>
+            </a>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 ISHIKAWA, Natsuki | MIT License
+    </footer>
+
+</body>
+</html>

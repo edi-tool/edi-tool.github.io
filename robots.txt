@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edi-tool.github.io/sitemap.xml

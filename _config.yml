@@ -1,0 +1,5 @@
+url: "https://edi-tool.github.io"
+baseurl: ""
+
+# サイトマップは手動管理の sitemap.xml（各ツールを1つに束ねた索引）を使うため
+# jekyll-sitemap プラグインは意図的に無効。追加すると sitemap.xml が上書きされる。
