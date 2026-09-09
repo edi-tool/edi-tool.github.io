@@ -14,6 +14,7 @@
 | 教育漢字さん | 漢字を小学校の学習学年別に表示 | https://edi-tool.github.io/edu-kanji-checker/ |
 | 常用漢字さん | 常用漢字外（表外漢字）を検出 | https://edi-tool.github.io/kanji-checker/ |
 | 表記統一さん | 表記ゆれを検出・統一 | https://edi-tool.github.io/hyoki-checker/ |
+| 黒板補正さん | 黒板・ホワイトボード写真の傾き補正 | https://edi-tool.github.io/kokuban-adjust/ |
 | ページ調整さん | ページ数提案・背幅概算 | https://edi-tool.github.io/page-count/ |
 
 ※ 社内用の `sku-to-qr` は `noindex` のため一覧・サイトマップに含めない。
