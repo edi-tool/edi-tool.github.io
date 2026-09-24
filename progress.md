@@ -1,5 +1,9 @@
 # 進捗: edi-tool 組織ルートサイト
 
+## 2026-09-24 セッション（SEO）
+
+- 構造化データを `@graph` 化し、WebSite に `@id`（`#website`）と publisher、Organization（`#organization`）を追加。各ツールの WebApplication から参照される
+
 ## 2026-07-14 新規作成
 
 - 組織 `edi-tool` のルートサイト `edi-tool.github.io` を新規作成し公開。
