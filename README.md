@@ -25,11 +25,14 @@
 - `robots.txt` — サブドメイン全体のクロール設定（ルートからのみ配信可能）
 - `sitemap.xml` — 公開ツールを束ねた一覧サイトマップ（手動管理）
 - `googled180bd734463e748.html` — Search Console 検証ファイル
+- `404.html` — サイト直下の存在しない URL で表示するページ（noindex、アセットは絶対 URL）
+- `ogp.png` — 共有用画像（1200×630）。生成スクリプトは `scripts/ogp/`（公開対象外）
 
 ## メンテナンス
 
 - ツールを増減したら `index.html` のカードと `sitemap.xml` を手動で更新する。
 - `sitemap.xml` は手動管理のため `jekyll-sitemap` は使わない。
+- ツールを増減したら `404.html` のツール一覧と、`scripts/ogp/` の OGP 画像（ハブ・該当ツール）も更新する。
 
 ## ライセンス
 

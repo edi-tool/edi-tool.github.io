@@ -1,0 +1,12 @@
+{
+  "name": "edi-tool-ogp",
+  "private": true,
+  "description": "ハブと各ツールの共有用 OGP 画像（1200×630）を生成する",
+  "scripts": {
+    "gen": "node gen.js"
+  },
+  "devDependencies": {
+    "@fontsource/noto-sans-jp": "^5.0.0",
+    "playwright": "1.56.1"
+  }
+}

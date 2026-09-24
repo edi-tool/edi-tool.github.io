@@ -26,6 +26,30 @@
 - ヘッダー下の「ブラウザ完結・無料・登録不要」バッジを削除（かえって胡散臭く見えるため）。共有用 `ogp.png` のバッジも同様に削除して再生成。
 - フッターの GitHub リンクを削除。
 
+## 2026-09-24 セッションのまとめ（5ツール横断の UI/デザイン改善）
+
+同日に各リポジトリで PR を出し、すべてマージ済み。詳細は各リポジトリの progress.md。
+
+| リポジトリ | 主な変更 |
+|---|---|
+| edi-tool.github.io | カードのアイコン・対応形式・矢印、404.html、OGP 画像、特長バッジと GitHub リンクの削除 |
+| edu-kanji-checker | ドロップゾーン、学年別分布バー、出現回数、タブの ARIA／キーボード操作、全学年印刷 |
+| kanji-checker | ドロップゾーン、集計とコピー、文脈の折りたたみ、PDF 進行表示、印刷 |
+| hyoki-checker | スマホで崩れていたレイアウトの修正、PC の作業領域を画面高に、絵文字→SVG、Render ビルド修正 |
+| kokuban-adjust | PC でのドラッグ＆ドロップ・貼り付け |
+| page-count | 全角数字入力、案ごとの背幅と「近い」表示 |
+
+全ツール共通: 見出し上の「edi-tool」リンクとフッターのツール一覧リンク、`--text-sub` を #6b6b6b に、
+文字用アクセント `--accent-text: #b35f00`（WCAG AA）、カードの上寄せ、`word-break: normal` + `overflow-wrap: anywhere`、
+1200×630 の OGP 画像（生成スクリプトは `scripts/ogp/`）。
+
+### 未対応（ユーザー判断待ち）
+
+- オレンジ（#f28c06）のボタン上の白文字はコントラスト 2.4:1 で WCAG AA 未達。直すにはボタン色を濃くする必要があり、ブランドの見た目が変わる。
+- ダークモード。手書き CSS の4ツールは容易だが、表記統一さんは Tailwind クラスに色が直書きのため改修量が大きい。
+- Render の hyoki-checker-api（未接続のバックエンド）は、ビルド修正後にダッシュボードの Start Command
+  （`uvicorn backend.main:app --host 0.0.0.0 --port $PORT`）の確認が必要。使わないなら停止してよい。
+
 ## 残タスク（手動）
 
 - Google Search Console で `https://edi-tool.github.io/` を URLプレフィックスで登録・検証し、
