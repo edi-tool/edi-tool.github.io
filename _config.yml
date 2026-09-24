@@ -3,3 +3,7 @@ baseurl: ""
 
 # サイトマップは手動管理の sitemap.xml（各ツールを1つに束ねた索引）を使うため
 # jekyll-sitemap プラグインは意図的に無効。追加すると sitemap.xml が上書きされる。
+
+# 開発用スクリプト（OGP 画像の生成など）は公開しない
+exclude:
+  - scripts
