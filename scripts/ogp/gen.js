@@ -53,7 +53,7 @@ const toolHtml = (t) => `<div class="card"><div class="bar"></div>
 const hubHtml = `<div class="card"><div class="bar"></div>
   <div class="brand">edi-tool.github.io</div>
   <div class="hub-title">edi-tool</div>
-  <div class="hub-lead">教育書・出版の編集実務向け<br>ブラウザ完結の無料ツール集</div>
+  <div class="hub-lead">執筆・編集の実務に役立つ<br>ブラウザ完結の無料ツール集</div>
   <div class="hub-icons" style="left:72px;right:auto">${Object.values(ICONS).map(s => `<div class="icon">${s}</div>`).join('')}</div></div>`;
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
