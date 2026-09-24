@@ -3,7 +3,7 @@
 組織 [`edi-tool`](https://github.com/edi-tool) のルートサイト（GitHub Pages 組織サイト）。
 公開URL: **https://edi-tool.github.io/**
 
-教育書・出版の編集実務向けツール群へのハブ（一覧）ページと、`edi-tool.github.io`
+執筆・編集の実務向けツール群へのハブ（一覧）ページと、`edi-tool.github.io`
 サブドメイン全体で共有される `robots.txt` / `sitemap.xml` / Google Search Console
 検証ファイルを配信する。
 
