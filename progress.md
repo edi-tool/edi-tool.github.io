@@ -15,6 +15,12 @@
 - フッターに GitHub 組織へのリンク。`--text-sub` を #6b6b6b に（コントラスト改善）。
 - 同日、5ツール側にも「edi-tool」リンク・ツール一覧への導線・コントラスト調整を入れた（各リポジトリの progress.md 参照）。
 
+## 2026-09-24 セッション（第2弾: 404・OGP・改行）
+
+- **404.html** を追加（組織サイト直下の存在しない URL で表示。ハブと同じトークン、ツール一覧へのリンク、noindex、アセットは絶対 URL）。
+- **OGP**: 共有カード用の `ogp.png`（1200×630、Noto Sans JP で生成）を追加し、`og:image` をファビコンから差し替え、`twitter:card` を `summary_large_image` に。
+- **改行**: body の `word-break: break-all` を `normal` + `overflow-wrap: anywhere` に変更。和文は従来どおり1字単位で折り返し、英単語（License、Word 等）は途中で割らない。
+
 ## 残タスク（手動）
 
 - Google Search Console で `https://edi-tool.github.io/` を URLプレフィックスで登録・検証し、
