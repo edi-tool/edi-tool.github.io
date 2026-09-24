@@ -21,6 +21,11 @@
 - **OGP**: 共有カード用の `ogp.png`（1200×630、Noto Sans JP で生成）を追加し、`og:image` をファビコンから差し替え、`twitter:card` を `summary_large_image` に。
 - **改行**: body の `word-break: break-all` を `normal` + `overflow-wrap: anywhere` に変更。和文は従来どおり1字単位で折り返し、英単語（License、Word 等）は途中で割らない。
 
+## 2026-09-24 セッション（ハブの簡素化）
+
+- ヘッダー下の「ブラウザ完結・無料・登録不要」バッジを削除（かえって胡散臭く見えるため）。共有用 `ogp.png` のバッジも同様に削除して再生成。
+- フッターの GitHub リンクを削除。
+
 ## 残タスク（手動）
 
 - Google Search Console で `https://edi-tool.github.io/` を URLプレフィックスで登録・検証し、
