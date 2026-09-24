@@ -33,10 +33,11 @@ lang: ja
             --surface: #fff;
             --border: #e0e0e0;
             --text: #0f0f0f;
-            --text-sub: #757575;
+            --text-sub: #6b6b6b;
             --accent: #f28c06;
             --accent-dark: #d97a00;
             --accent-soft: #fff8f0;
+            --accent-text: #b35f00; /* 文字用のアクセント（白地で AA を満たす濃さ） */
             --danger: #e53935;
         }
         :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -80,8 +81,36 @@ lang: ja
         }
         .lead {
             font-size: 14px;
+            line-height: 1.7;
             color: var(--text-sub);
             margin: 0;
+        }
+        /* 3つの特長 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 16px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .features li {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 28px;
+            padding: 0 12px;
+            border-radius: 999px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .features svg {
+            width: 14px;
+            height: 14px;
+            color: var(--accent);
         }
 
         /* Tool Cards */
@@ -90,33 +119,88 @@ lang: ja
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 16px;
         }
+        @media (max-width: 400px) {
+            .tool-grid { grid-template-columns: 1fr; }
+        }
         .tool-card {
-            display: block;
+            position: relative;
+            display: flex;
+            gap: 16px;
             text-decoration: none;
             color: inherit;
             background-color: var(--surface);
             border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            transition: box-shadow 0.2s, transform 0.1s;
+            transition: box-shadow 0.2s, transform 0.1s, border-color 0.2s;
         }
         .tool-card:hover {
+            border-color: var(--accent);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transform: translateY(-2px);
         }
         .tool-card:active { transform: translateY(0); }
+        .tool-icon {
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background-color: var(--accent-soft);
+            color: var(--accent);
+        }
+        .tool-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .tool-body {
+            flex: 1;
+            min-width: 0;
+        }
         .tool-name {
+            display: block;
             font-size: 17px;
             font-weight: 600;
             margin: 0 0 6px;
+            padding-right: 24px; /* 右上の矢印と重ならないように */
         }
         .tool-desc {
+            display: block;
             font-size: 13px;
             color: var(--text-sub);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
+            /* body の break-all だと英字（PDF・Word）が途中で折れる */
+            word-break: normal;
+        }
+        .tool-tag {
+            display: inline-flex;
+            align-items: center;
+            height: 22px;
+            margin-top: 12px;
+            padding: 0 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-text);
+            background-color: var(--accent-soft);
+            border: 1px solid #ffd9a8;
+        }
+        .tool-arrow {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 18px;
+            height: 18px;
+            color: var(--text-sub);
+            transition: transform 0.2s, color 0.2s;
+        }
+        .tool-card:hover .tool-arrow {
+            color: var(--accent);
+            transform: translateX(3px);
         }
 
         footer {
@@ -124,7 +208,10 @@ lang: ja
             font-size: 12px;
             color: var(--text-sub);
             text-align: center;
+            word-break: normal;
         }
+        footer a { color: inherit; }
+        footer a:hover { color: var(--accent-text); }
     </style>
     <script type="application/ld+json">
     {
@@ -143,34 +230,64 @@ lang: ja
         <header>
             <h1>edi-tool</h1>
             <p class="lead">教育書・出版の編集実務向け、ブラウザ完結の無料ツール集。<br>ファイルは外部送信しません。</p>
+            <ul class="features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>ブラウザ完結</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>無料</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>登録不要</li>
+            </ul>
         </header>
 
         <main class="tool-grid">
             <a class="tool-card" href="https://edi-tool.github.io/edu-kanji-checker/">
-                <p class="tool-name">教育漢字さん</p>
-                <p class="tool-desc">PDF・Word 内の漢字を、小学校での学習学年別に分類して表示します。教材づくりやテキスト選定に。</p>
+                <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></span>
+                <span class="tool-body">
+                    <span class="tool-name">教育漢字さん</span>
+                    <span class="tool-desc">PDF・Word 内の漢字を、小学校での学習学年別に分類して表示します。教材づくりやテキスト選定に。</span>
+                    <span class="tool-tag">PDF・Word</span>
+                </span>
+                <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a class="tool-card" href="https://edi-tool.github.io/kanji-checker/">
-                <p class="tool-name">常用漢字さん</p>
-                <p class="tool-desc">PDF・Word 内の常用漢字外（表外漢字）を検出し、文脈つきで指摘します。人名用漢字も判別。</p>
+                <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+                <span class="tool-body">
+                    <span class="tool-name">常用漢字さん</span>
+                    <span class="tool-desc">PDF・Word 内の常用漢字外（表外漢字）を検出し、文脈つきで指摘します。人名用漢字も判別。</span>
+                    <span class="tool-tag">PDF・Word</span>
+                </span>
+                <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a class="tool-card" href="https://edi-tool.github.io/hyoki-checker/">
-                <p class="tool-name">表記統一さん</p>
-                <p class="tool-desc">文章中の表記ゆれを検出・統一します。辞書ベースと形態素解析（Beta）に対応。</p>
+                <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+                <span class="tool-body">
+                    <span class="tool-name">表記統一さん</span>
+                    <span class="tool-desc">文章中の表記ゆれを検出・統一します。辞書ベースと形態素解析（Beta）に対応。</span>
+                    <span class="tool-tag">テキスト・Word・PDF</span>
+                </span>
+                <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a class="tool-card" href="https://edi-tool.github.io/kokuban-adjust/">
-                <p class="tool-name">黒板補正さん</p>
-                <p class="tool-desc">斜めから撮った黒板・ホワイトボードの写真を、正面から見た長方形に補正します。</p>
+                <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="m7 13 3-3 2 2 4-4"></path></svg></span>
+                <span class="tool-body">
+                    <span class="tool-name">黒板補正さん</span>
+                    <span class="tool-desc">斜めから撮った黒板・ホワイトボードの写真を、正面から見た長方形に補正します。</span>
+                    <span class="tool-tag">画像</span>
+                </span>
+                <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a class="tool-card" href="https://edi-tool.github.io/page-count/">
-                <p class="tool-name">ページ調整さん</p>
-                <p class="tool-desc">暫定ページ数から台割りに合うページ数を提案し、背幅を概算します。入稿前の確認に。</p>
+                <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                <span class="tool-body">
+                    <span class="tool-name">ページ調整さん</span>
+                    <span class="tool-desc">暫定ページ数から台割りに合うページ数を提案し、背幅を概算します。入稿前の確認に。</span>
+                    <span class="tool-tag">数値入力</span>
+                </span>
+                <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
         </main>
     </div>
 
     <footer>
-        &copy; 2026 ISHIKAWA, Natsuki | MIT License
+        <a href="https://github.com/edi-tool">GitHub</a> | &copy; 2026 ISHIKAWA, Natsuki | MIT License
     </footer>
 
 </body>
