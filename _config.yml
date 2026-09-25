@@ -4,6 +4,16 @@ baseurl: ""
 # サイトマップは手動管理の sitemap.xml（各ツールを1つに束ねた索引）を使うため
 # jekyll-sitemap プラグインは意図的に無効。追加すると sitemap.xml が上書きされる。
 
-# 開発用スクリプト（OGP 画像の生成など）は公開しない
+# 開発用ファイル・スクリプト（OGP 画像の生成など）・テストを公開ビルドから外す
+# （Pages で CLAUDE.md などが配信されないように）
 exclude:
-  - scripts
+  - CLAUDE.md
+  - AGENTS.md
+  - DESIGN.md
+  - progress.md
+  - README.md
+  - CHANGELOG.md
+  - package.json
+  - scripts/
+  - tests/
+  - docs/
