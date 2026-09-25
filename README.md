@@ -30,9 +30,21 @@
 
 ## メンテナンス
 
-- ツールを増減したら `index.html` のカードと `sitemap.xml` を手動で更新する。
+- ツールを増減したら、次の 4 か所を同時に更新する。
+  1. `index.html` のカード
+  2. `sitemap.xml`
+  3. この README の「掲載ツール」表
+  4. Org プロフィール（[edi-tool/.github](https://github.com/edi-tool/.github) の `profile/README.md`）
+- 1〜3 が一致していることは `npm test` で確認できる（CI でも実行）。4 は別リポジトリのため手で確認する。
 - `sitemap.xml` は手動管理のため `jekyll-sitemap` は使わない。
 - ツールを増減したら `404.html` のツール一覧と、`scripts/ogp/` の OGP 画像（ハブ・該当ツール）も更新する。
+- 開発方針は [edi-tool 開発原則](https://github.com/edi-tool/.github/blob/main/PRINCIPLES.md) に従う。
+
+```bash
+python -m http.server 8000   # プレビュー
+npm test                     # 掲載ツールの整合テスト（Node.js 22 以上、依存パッケージなし）
+npm run check                # HTML の静的チェック
+```
 
 ## ライセンス
 
