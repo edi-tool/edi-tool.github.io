@@ -2,6 +2,7 @@
 
 ## 2026-09-24 セッション（SEO）
 
+- `og:site_name`（edi-tool）を追加
 - 構造化データを `@graph` 化し、WebSite に `@id`（`#website`）と publisher、Organization（`#organization`）を追加。各ツールの WebApplication から参照される
 
 ## 2026-07-14 新規作成
