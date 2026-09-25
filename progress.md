@@ -2,6 +2,22 @@
 
 ## 2026-09-24 セッション（SEO）
 
+### 全体まとめ（ハブ＋5ツール、すべてマージ済み）
+
+| リポジトリ | PR |
+| --- | --- |
+| edi-tool.github.io | #6, #7 |
+| hyoki-checker | #39, #40 |
+| kokuban-adjust | #17, #18 |
+| page-count | #5, #6 |
+| edu-kanji-checker | #4, #5 |
+| kanji-checker | #5, #6 |
+
+- 各ツール: `<title>`・`og:title` をキーワード先頭（「{機能名} | {ツール名}」）に。JSON-LD を `@graph` 化（WebApplication に url・operatingSystem・offers・image・isPartOf/publisher、BreadcrumbList を追加）。`og:site_name` を追加。
+- edu-kanji-checker / kanji-checker: meta description を具体化。head の mammoth・データ JS を `defer` 化、preconnect を cdn.jsdelivr.net に修正（.docx 読み込みを Chromium で動作確認済み）。
+- 4ツール（hyoki-checker 以外）: Search Console 確認ファイルを jekyll-sitemap の出力から除外。
+- 残作業（手動）: Rich Results Test で各ツールのパンくず検出を確認／Search Console の URL 検査で各ツールのインデックス登録をリクエスト。
+
 - `og:site_name`（edi-tool）を追加
 - 構造化データを `@graph` 化し、WebSite に `@id`（`#website`）と publisher、Organization（`#organization`）を追加。各ツールの WebApplication から参照される
 

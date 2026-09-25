@@ -21,5 +21,8 @@
 - sku-to-qr は社内用（noindex）のためハブ・サイトマップに含めない。
 - ツールを増減したら `index.html` のカード・`sitemap.xml`・`404.html` の一覧・OGP 画像（`scripts/ogp/`）をそろえて更新する。
 - ハブには「ブラウザ完結・無料・登録不要」のような特長バッジや GitHub へのリンクを置かない（ユーザー判断: かえって胡散臭く見える）。
+- 各ツールの SEO 規約（新規ツールも同じに）: `<title>`/`og:title` は「{機能名} | {ツール名}」、`og:site_name` は edi-tool。
+  JSON-LD は `@graph` に WebApplication（`isPartOf` → `https://edi-tool.github.io/#website`、`publisher` → `#organization`）と BreadcrumbList（edi-tool > ツール名）。
+  この `@id` はハブの `index.html` で定義しているので変更しない。
 - 各ツールの見出し上の「edi-tool」リンクとフッターの「← edi-tool ツール一覧」でハブへ戻れる構成を保つ。
 - 軽微な修正での push 禁止。ローカルサーバーで検証し、複数修正を1コミットに集約。
