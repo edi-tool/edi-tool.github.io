@@ -1,4 +1,4 @@
-// ハブと6ツールの共有用 OGP 画像（1200×630）を HTML テンプレートから生成する。
+// ハブと7ツールの共有用 OGP 画像（1200×630）を HTML テンプレートから生成する。
 // 使い方は scripts/ogp/README.md を参照。出力先: scripts/ogp/out/<名前>.png
 // → 各リポジトリ直下の ogp.png として配置する（ハブは hub.png → このリポジトリの ogp.png）。
 const { chromium } = require('playwright');
@@ -15,6 +15,7 @@ const ICONS = {
   kokuban: I('<rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="m7 13 3-3 2 2 4-4"></path>'),
   page: I('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>'),
   zukei: I('<path d="M12 2 22 9.5 18 21H6L2 9.5Z"></path>'),
+  palette: I('<circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>'),
 };
 const TOOLS = [
   { out: 'edu-kanji-checker.png', icon: 'edu', name: '教育漢字さん', tag: '漢字を小学校の学習学年別に分類', chips: ['PDF・Word', '学年別の分布', 'ブラウザ完結'] },
@@ -23,6 +24,7 @@ const TOOLS = [
   { out: 'kokuban-adjust.png', icon: 'kokuban', name: '黒板補正さん', tag: '斜めに撮った黒板を、まっすぐに', chips: ['写真', '高解像度のまま保存', 'ブラウザ完結'] },
   { out: 'page-count.png', icon: 'page', name: 'ページ調整さん', tag: '台割りに合うページ数と背幅を概算', chips: ['ページ数', '背幅', 'ブラウザ完結'] },
   { out: 'zukei-drafter.png', icon: 'zukei', name: '図形作成さん', tag: '数値入力から2D/3D図形を生成', chips: ['PNG・SVG', '教材・プリント向け', 'ブラウザ完結'] },
+  { out: 'color-palette.png', icon: 'palette', name: '配色さん', tag: '印象語から配色を探して、AIに渡す', chips: ['24案を比較', 'AI向け指示文', 'ブラウザ完結'] },
 ];
 const css = `
 @font-face { font-family: N; font-weight: 400; src: ${font('noto-sans-jp-latin-400-normal.woff2')}; }
