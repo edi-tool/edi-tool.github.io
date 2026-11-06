@@ -7,8 +7,8 @@ permalink: /404.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8f6f2" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1c1b19" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
     <title>ページが見つかりません | edi-tool</title>
     <meta name="robots" content="noindex">
     <!-- 404 はどの階層の URL でも返るため、アセットは絶対 URL で参照する -->
@@ -16,30 +16,30 @@ permalink: /404.html
     <style>
         /* ===== 共通デザイントークン（edi-tool 全ツール共通。正本: edi-tool/.github の DESIGN.md） ===== */
         :root {
-            --bg: #f8f6f2;
+            --bg: #f5f5f7;
             --surface: #fff;
-            --border: #e0e0e0;
-            --text: #0f0f0f;
-            --text-sub: #5f5b54;
-            --accent: #f28c06;
-            --accent-soft: #fff8f0;
-            --accent-dark: #d97a00;
-            --accent-text: #b35f00;
-            --accent-ink: #9a5200;
-            --focus: #9a5200;
+            --border: #e5e5ea;
+            --text: #0a0a0a;
+            --text-sub: #52525b;
+            --accent: #ff6a00;
+            --accent-soft: #f0f0f3;
+            --accent-dark: #e85f00;
+            --accent-text: #c2410c;
+            --accent-ink: #c2410c;
+            --focus: #c2410c;
             color-scheme: light dark;
         }
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #1c1b19;
-                --surface: #26241f;
-                --border: #46423a;
-                --text: #f3f1ec;
-                --text-sub: #b9b4a8;
-                --accent-soft: #33281a;
-                --accent-text: #ffb24d;
-                --accent-ink: #ffb24d;
-                --focus: #ffb24d;
+                --bg: #0b0b0c;
+                --surface: #161618;
+                --border: #2a2a2e;
+                --text: #f4f4f5;
+                --text-sub: #a1a1aa;
+                --accent-soft: #222225;
+                --accent-text: #ff8a3d;
+                --accent-ink: #ff8a3d;
+                --focus: #ff8a3d;
             }
         }
         :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
@@ -65,7 +65,7 @@ permalink: /404.html
             max-width: 450px;
             background-color: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 32px 24px;
             box-sizing: border-box;
             text-align: center;
@@ -96,9 +96,9 @@ permalink: /404.html
             min-height: 48px;
             padding: 0 24px;
             border: 2px solid var(--accent-dark);
-            border-radius: 10px;
+            border-radius: 12px;
             background-color: var(--accent);
-            color: #1a1100; /* アクセント地の文字（7.59:1）。共通の主操作ボタンと同じ */
+            color: #0a0a0a; /* アクセント地の文字（6.90:1）。共通の主操作ボタンと同じ */
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
@@ -128,7 +128,7 @@ permalink: /404.html
             color: var(--text);
             text-decoration: none;
             font-size: 15px;
-            border-radius: 6px;
+            border-radius: 8px;
         }
         .tools a::after { content: "→"; color: var(--text-sub); }
         .tools a:hover { background-color: var(--accent-soft); color: var(--accent-ink); }

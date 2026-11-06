@@ -9,8 +9,8 @@ lang: ja
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8f6f2" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1c1b19" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 
     <title>edi-tool | {{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
@@ -33,33 +33,33 @@ lang: ja
     <style>
         /* ===== 共通デザイントークン（edi-tool 全ツール共通。正本: edi-tool/.github の DESIGN.md） ===== */
         :root {
-            --bg: #f8f6f2;
+            --bg: #f5f5f7;
             --surface: #fff;
-            --border: #e0e0e0;
-            --control-border: #8c877e; /* 入力欄・ボタンの輪郭（白地 3.57:1） */
-            --text: #0f0f0f;
-            --text-sub: #5f5b54;      /* 背景上 6.25:1 */
-            --accent: #f28c06;
-            --accent-dark: #d97a00;
-            --accent-soft: #fff8f0;
-            --accent-text: #b35f00;   /* 白地の太字・大きい文字だけ（白地 4.61:1） */
-            --accent-ink: #9a5200;    /* 小さい文字のアクセント（背景上 5.43:1・淡色上 5.57:1） */
-            --focus: #9a5200;
+            --border: #e5e5ea;
+            --control-border: #8a8a93; /* 入力欄・ボタンの輪郭（白地 3.42:1・背景上 3.14:1） */
+            --text: #0a0a0a;
+            --text-sub: #52525b;      /* 白地 7.73:1・背景上 7.10:1 */
+            --accent: #ff6a00;
+            --accent-dark: #e85f00;
+            --accent-soft: #f0f0f3;
+            --accent-text: #c2410c;   /* 旧名。--accent-ink と同じ値 */
+            --accent-ink: #c2410c;    /* リンク・小さな強調（白地 5.18:1・背景上 4.76:1・淡色上 4.68:1） */
+            --focus: #c2410c;
             --danger: #c62828;
             color-scheme: light dark;
         }
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #1c1b19;
-                --surface: #26241f;
-                --border: #46423a;
-                --control-border: #8a8476;
-                --text: #f3f1ec;
-                --text-sub: #b9b4a8;
-                --accent-soft: #33281a;
-                --accent-text: #ffb24d;
-                --accent-ink: #ffb24d;
-                --focus: #ffb24d;
+                --bg: #0b0b0c;
+                --surface: #161618;
+                --border: #2a2a2e;
+                --control-border: #71717a;
+                --text: #f4f4f5;
+                --text-sub: #a1a1aa;
+                --accent-soft: #222225;
+                --accent-text: #ff8a3d;
+                --accent-ink: #ff8a3d;
+                --focus: #ff8a3d;
                 --danger: #ff8a80;
             }
         }
@@ -93,10 +93,14 @@ lang: ja
         }
 
         header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 2rem;
         }
         h1 {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            letter-spacing: -0.02em;
             margin: 0 0 0.5rem;
             font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
             font-weight: 800;
@@ -115,6 +119,7 @@ lang: ja
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
             gap: 1rem;
         }
+        .et-mark { flex: none; width: 0.6em; height: 0.6em; border-radius: 0.18em; background: var(--accent); }
         .tool-card {
             position: relative;
             display: flex;
@@ -124,13 +129,13 @@ lang: ja
             color: inherit;
             background-color: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 1.25rem;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
         .tool-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 1px var(--accent);
+            border-color: var(--text);
+            box-shadow: 0 0 0 1px var(--text);
         }
         .tool-card:focus-visible { outline-offset: 3px; }
         .tool-icon {
@@ -141,8 +146,8 @@ lang: ja
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background-color: var(--accent-soft);
-            color: var(--accent);
+            background-color: var(--accent);
+            color: #0a0a0a;
         }
         .tool-icon svg {
             width: 26px;
@@ -191,7 +196,7 @@ lang: ja
             transition: transform 0.15s, color 0.15s;
         }
         .tool-card:hover .tool-arrow {
-            color: var(--accent-ink);
+            color: var(--text);
             transform: translateX(3px);
         }
 
@@ -231,7 +236,7 @@ lang: ja
 
     <div class="container">
         <header>
-            <h1>edi-tool</h1>
+            <h1><span class="et-mark" aria-hidden="true"></span>edi-tool</h1>
             <p class="lead">執筆・編集の実務に役立つ、ブラウザ完結の無料ツール集。<br>ファイルは外部送信しません。</p>
         </header>
 
