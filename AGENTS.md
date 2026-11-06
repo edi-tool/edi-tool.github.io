@@ -18,7 +18,7 @@
 - ツールを増減したら `index.html` のカード・`sitemap.xml`・README の「掲載ツール」表・`404.html` の一覧・OGP 画像（`scripts/ogp/`）をそろえ、別リポジトリ edi-tool/.github の `profile/README.md` も更新する。
 - `sitemap.xml` は手動管理（各ツールを束ねた一覧）。jekyll-sitemap を導入しない（sitemap.xml が上書きされるため）。
 - `robots.txt` は github.io サブドメイン全体で共有され、このリポジトリからのみ配信できる。
-- 社内用の sku-to-qr（noindex）はハブ・サイトマップに載せない。
+- 社内用の sku-to-qr（noindex）はサイトマップに載せない。ハブにはカードにせず、一覧の下の「社内向け」の小さな欄にだけ `rel="nofollow"` で載せる（ユーザー判断 2026-11-06: 特定の用途にしか使えないため控えめに）。ハブには「社内向け」とツール名だけを出し、社名は書かない。
 - ハブには「ブラウザ完結・無料・登録不要」のような特長バッジや GitHub へのリンクを置かない（ユーザー判断: かえって胡散臭く見える）。
 - 各ツールの SEO 規約（新規ツールも同じに）: `<title>`/`og:title` は「{機能名} | {ツール名}」、`og:site_name` は edi-tool。JSON-LD は `@graph` に WebApplication（`isPartOf` → `https://edi-tool.github.io/#website`、`publisher` → `#organization`）と BreadcrumbList（edi-tool > ツール名）。
 - `index.html` の JSON-LD の `@id`（`#website`・`#organization`）は各ツールから参照されるため変更しない。

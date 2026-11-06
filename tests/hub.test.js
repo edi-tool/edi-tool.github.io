@@ -7,11 +7,12 @@ const { join } = require('node:path');
 
 const read = (f) => readFileSync(join(__dirname, '..', f), 'utf8');
 const ROOT = 'https://edi-tool.github.io/';
-// 社内向け（noindex）のため、どこにも載せないツール
+// 社内向け（noindex）のツール。サイトマップには載せず、ハブにはカードにせず「社内向け」の小さな欄だけに載せる
 const PRIVATE_TOOLS = ['sku-to-qr'];
+const isPrivate = (u) => PRIVATE_TOOLS.some((name) => u.includes(`/${name}/`));
 
 const toolUrls = (urls) => [...new Set(urls)].filter((u) => u !== ROOT && u.startsWith(ROOT)).sort();
-const fromIndex = () => toolUrls([...read('index.html').matchAll(/<a[^>]+href="([^"]+)"/g)].map((m) => m[1]));
+const fromIndex = () => toolUrls([...read('index.html').matchAll(/<a[^>]+href="([^"]+)"/g)].map((m) => m[1])).filter((u) => !isPrivate(u));
 const fromSitemap = () => toolUrls([...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
 const fromReadme = () => toolUrls([...read('README.md').matchAll(/^\|[^\n]*\| (https:\/\/edi-tool\.github\.io\/[^ |]+) \|$/gm)].map((m) => m[1]));
 
@@ -28,10 +29,12 @@ test('sitemap.xml にハブ自身が含まれている', () => {
   assert.match(read('sitemap.xml'), new RegExp(`<loc>${ROOT}</loc>`));
 });
 
-test('社内向けツールはハブ・サイトマップに載せない', () => {
+test('社内向けツールはサイトマップに載せず、ハブではカードにしない（小さな欄に nofollow で載せる）', () => {
+  const html = read('index.html');
   for (const name of PRIVATE_TOOLS) {
-    assert.ok(!fromIndex().some((u) => u.includes(`/${name}/`)), `index.html に ${name}`);
     assert.ok(!fromSitemap().some((u) => u.includes(`/${name}/`)), `sitemap.xml に ${name}`);
+    assert.doesNotMatch(html, new RegExp(`class="tool-card"[^>]*href="[^"]*/${name}/"`), `カードに ${name}`);
+    assert.match(html, new RegExp(`<p class="minor-tools">[^\\n]*href="https://edi-tool\\.github\\.io/${name}/" rel="nofollow"`), `社内向けの欄に ${name}`);
   }
 });
 

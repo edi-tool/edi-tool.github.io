@@ -1,4 +1,4 @@
-// ハブと8ツールのファビコンを生成する。蛍光オレンジの角丸に、ハブのカードと同じ線のアイコンを墨で載せる。
+// ハブと9ツール（社内向けの QRコードさんを含む）のファビコンを生成する。蛍光オレンジの角丸に、ハブのカードと同じ線のアイコンを墨で載せる。
 // 使い方は scripts/ogp/README.md を参照。出力先: scripts/ogp/out/favicon/<リポジトリ名>/
 //   favicon.svg（主）・favicon.ico（16/32/48）・favicon.png（192）・apple-touch-icon.png（180、角丸なし）
 //   黒板補正さんだけ icon-192.png・icon-512.png（manifest.json 用）も出す。
@@ -21,6 +21,7 @@ const ICONS = {
   'kokuban-adjust': '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m7 13 3-3 2 2 4-4"/>',
   'page-count': '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
   'zukei-drafter': '<path d="M12 2 22 9.5 18 21H6L2 9.5Z"/>',
+  'sku-to-qr': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v.01"/><path d="M14 20h.01"/><path d="M17 20h4v-3"/>',
 };
 
 // 64×64 の格子。rx=0 は apple-touch-icon 用（iOS が自分で角を丸める）

@@ -17,6 +17,7 @@ const ICONS = {
   kokuban: I('<rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="m7 13 3-3 2 2 4-4"></path>'),
   page: I('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>'),
   moji: I('<polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line>'),
+  qr: I('<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><path d=\"M14 14h3v3h-3z\"/><path d=\"M20 14v.01\"/><path d=\"M14 20h.01\"/><path d=\"M17 20h4v-3\"/>'),
   zukei: I('<path d="M12 2 22 9.5 18 21H6L2 9.5Z"></path>'),
   palette: I('<circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>'),
 };
@@ -27,6 +28,7 @@ const TOOLS = [
   { out: 'kokuban-adjust.png', icon: 'kokuban', name: '黒板補正さん', tag: '斜めに撮った黒板を、まっすぐに', chips: ['写真', '高解像度のまま保存', 'ブラウザ完結'] },
   { out: 'page-count.png', icon: 'page', name: 'ページ調整さん', tag: '台割りに合うページ数と背幅を概算', chips: ['ページ数', '背幅', 'ブラウザ完結'] },
   { out: 'zukei-drafter.png', icon: 'zukei', name: '図形作成さん', tag: '数値入力から2D/3D図形を生成', chips: ['PNG・SVG', '教材・プリント向け', 'ブラウザ完結'] },
+  { out: 'sku-to-qr.png', icon: 'qr', name: 'QRコードさん', tag: 'SKUから書籍のQRコードを作成', chips: ['東洋館EC用', '印刷用 1600px', 'ブラウザ完結'], hub: false },
   { out: 'moji-counter.png', icon: 'moji', name: '文字数集計さん', tag: '貼るだけで文字数がすぐ分かる', chips: ['改行・空白を除く', '上限までの残り', 'ブラウザ完結'] },
   { out: 'color-palette.png', icon: 'palette', name: '配色提案さん', tag: '印象語から配色を探して、AIに渡す', chips: ['24案を比較', 'AI向け指示文', 'ブラウザ完結'] },
 ];
@@ -63,7 +65,7 @@ const hubHtml = `<div class="card">
   <div class="brand"><span class="mark"></span>edi-tool.github.io</div>
   <div class="hub-title">edi-tool</div>
   <div class="hub-lead">執筆・編集の実務に役立つ<br>ブラウザ完結の無料ツール集</div>
-  <div class="hub-icons" style="left:72px;right:auto">${Object.values(ICONS).map(s => `<div class="icon">${s}</div>`).join('')}</div></div>`;
+  <div class="hub-icons" style="left:72px;right:auto">${TOOLS.filter(t => t.hub !== false).map(t => `<div class="icon">${ICONS[t.icon]}</div>`).join('')}</div></div>`;
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   // CHROMIUM_PATH があればそのブラウザを使う（未指定なら Playwright 同梱のもの）

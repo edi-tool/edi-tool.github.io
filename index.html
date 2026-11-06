@@ -122,6 +122,9 @@ lang: ja
             gap: 1rem;
         }
         .et-mark { flex: none; width: 0.6em; height: 0.6em; border-radius: 0.18em; background: var(--accent); }
+        .minor-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.75rem; margin: 2rem 0 0; font-size: 0.875rem; color: var(--text-sub); }
+        .minor-label { padding: 2px 10px; border-radius: 999px; background: var(--surface-2, #f0f0f3); color: var(--text-sub); font-size: 0.8125rem; font-weight: 700; }
+        .minor-tools a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent-ink); font-weight: 700; }
         .tool-card {
             position: relative;
             display: flex;
@@ -333,6 +336,9 @@ footer a[href="https://edi-tool.github.io/"] { display: inline-flex; align-items
                 <svg class="tool-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
         </main>
+
+        <!-- 社内向けのツールは、カードにせず小さく載せる（検索に出さない: リンクは nofollow、sitemap には載せない） -->
+        <p class="minor-tools"><span class="minor-label">社内向け</span><a href="https://edi-tool.github.io/sku-to-qr/" rel="nofollow">QRコードさん</a></p>
     </div>
 
     <footer>
