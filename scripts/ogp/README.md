@@ -1,6 +1,6 @@
 # OGP 画像の生成
 
-ハブ（このリポジトリ）と7ツールの共有用画像（1200×630、Noto Sans JP）を
+ハブ（このリポジトリ）と8ツールの共有用画像（1200×630、Noto Sans JP）を
 HTML テンプレートから生成するスクリプト。サイト本体には依存を持ち込まないよう、
 このディレクトリだけで完結させ、`_config.yml` の `exclude` で公開対象から外している。
 
@@ -10,7 +10,7 @@ HTML テンプレートから生成するスクリプト。サイト本体には
 cd scripts/ogp
 npm install
 npx playwright install chromium   # 初回のみ（手元に Chromium があれば CHROMIUM_PATH で指定してもよい）
-npm run gen                        # → out/ に 8 枚出力
+npm run gen                        # → out/ に 9 枚出力
 ```
 
 | 出力 | 配置先 |
@@ -22,5 +22,6 @@ npm run gen                        # → out/ に 8 枚出力
 
 - ツール名・説明・タグは `gen.js` の `TOOLS`、ハブの文言は `hubHtml` を編集する。
 - アイコンはハブ `index.html` のカードと同じ線画 SVG（`ICONS`）。ツールを増減したら両方をそろえる。
+- `@fontsource/noto-sans-jp` が入っていなければ、実行環境の Noto Sans JP で描く（Windows に入っていればそれを使う）。
 - 各ページの `<meta property="og:image">` は `ogp.png`（1200×630）を指している。ファイル名を変えるなら各ページも直す。
 - SNS はプレビューをキャッシュするため、画像を差し替えても反映まで時間がかかることがある。
