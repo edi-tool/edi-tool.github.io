@@ -1,5 +1,12 @@
 # 進捗: edi-tool 組織ルートサイト
 
+## 2026-11-06 セッション（検索対策）
+
+- Search Console（https://edi-tool.github.io/ の URL プレフィックス、認証ファイル `googled180bd734463e748.html`）を確認。送信済みのサイトマップは 2026-04 の旧 `/edu-kanji-checker/sitemap.xml`・`/kanji-checker/sitemap.xml`・`/page-count/sitemap.xml`（いずれも取得不可）だけで、ルートの `/sitemap.xml` は未送信だった。インデックス登録済みはハブ・ページ調整さん・常用漢字さん・教育漢字さんの4件。
+- ユーザーの許可を得て、ルートの `sitemap.xml` を送信し、旧3件を削除した。送信直後の表示は「取得できませんでした」（初回は数日で読み込まれることが多い。改善しなければ要再確認）。
+- 8ツールに「できること・使い方・よくある質問」の節を追加（各リポジトリの progress.md）。`sitemap.xml` の lastmod を 2026-11-06 に更新。
+- 次の一手: 数日後に Search Console の「サイトマップ」で検出ページ数 9、「ページ」で登録数が増えたかを確認する。
+
 ## 2026-11-06 セッション（edi-tool 共通デザイン 2026-11-06 版の適用）
 
 ハブと8ツールすべてを、edi-tool/.github の `DESIGN.md` 新版（案C ソフト面×蛍光オレンジ）にそろえて公開した。決定の理由・各リポジトリのコミット・検証・残課題は Editorial-Workspace の `docs/261106_edi-tool_design_refresh.md`。下はハブ分。
