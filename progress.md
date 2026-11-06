@@ -8,6 +8,7 @@
 - 見出しを左寄せにしてロゴ印を付け、ツールのアイコン地を淡オレンジから `--accent`（墨のアイコン）に。カード hover の枠を墨に。`--accent-soft` を無彩の薄灰に。
 - 404 の矢印を線のアイコンに。`meta description` を追加（check-static の警告を解消）。
 - OGP 画像を新しい配色で作り直し（`scripts/ogp/gen.js`。文字数集計さんを追加、配色さん→配色提案さん、Noto Sans JP がなければ実行環境のフォントで描く）。全9枚を各リポジトリの `ogp.png` に配置。
+- ファビコンを共通の形（蛍光オレンジの角丸＋ツールの線アイコン）に。`favicon.svg`・`favicon.ico`（16/32/48）・`favicon.png`（192）・`apple-touch-icon.png`（180）を置き、`<head>` の指定を3行にそろえた（生成はハブの `scripts/ogp/favicon.js`）。 ハブは一覧を表す格子のアイコン。`scripts/ogp/favicon.js` を追加し README に手順を記載。
 
 ## 2026-10-13 セッション（漢字2ツール・表記統一さんの精度見直し）
 
