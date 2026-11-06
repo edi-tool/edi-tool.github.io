@@ -18,6 +18,7 @@
 | ページ調整さん | ページ数提案・背幅概算 | https://edi-tool.github.io/page-count/ |
 | 図形作成さん | 数値入力から2D・3D図形を生成しPNG・SVGで保存 | https://edi-tool.github.io/zukei-drafter/ |
 | 配色さん | 印象語から配色を比較し、AI向け配色指示文をコピー | https://edi-tool.github.io/color-palette/ |
+| 文字数集計さん | 貼るだけで文字数を集計。改行・空白除外、上限、原稿用紙換算 | https://edi-tool.github.io/moji-counter/ |
 
 ※ 社内用の `sku-to-qr` は `noindex` のため一覧・サイトマップに含めない。
 
