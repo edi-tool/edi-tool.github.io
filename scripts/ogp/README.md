@@ -1,6 +1,6 @@
 # OGP 画像とファビコンの生成
 
-ハブ（このリポジトリ）と8ツールの共有用画像（1200×630、Noto Sans JP）を
+ハブ（このリポジトリ）と9ツールの共有用画像（1200×630、Noto Sans JP）を
 HTML テンプレートから生成するスクリプト。サイト本体には依存を持ち込まないよう、
 このディレクトリだけで完結させ、`_config.yml` の `exclude` で公開対象から外している。
 
@@ -10,7 +10,7 @@ HTML テンプレートから生成するスクリプト。サイト本体には
 cd scripts/ogp
 npm install
 npx playwright install chromium   # 初回のみ（手元に Chromium があれば CHROMIUM_PATH で指定してもよい）
-npm run gen                        # → out/ に OGP 9 枚
+npm run gen                        # → out/ に OGP 11 枚
 node favicon.js                    # → out/favicon/<リポジトリ名>/ にファビコン一式
 ```
 
