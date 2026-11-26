@@ -1,4 +1,4 @@
-// ハブと8ツールの共有用 OGP 画像（1200×630）を HTML テンプレートから生成する。
+// ハブと9ツールの共有用 OGP 画像（1200×630）を HTML テンプレートから生成する。
 // 使い方は scripts/ogp/README.md を参照。出力先: scripts/ogp/out/<名前>.png
 // → 各リポジトリ直下の ogp.png として配置する（ハブは hub.png → このリポジトリの ogp.png）。
 const { chromium } = require('playwright');
@@ -19,6 +19,7 @@ const ICONS = {
   moji: I('<polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line>'),
   qr: I('<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><path d=\"M14 14h3v3h-3z\"/><path d=\"M20 14v.01\"/><path d=\"M14 20h.01\"/><path d=\"M17 20h4v-3\"/>'),
   zukei: I('<path d="M12 2 22 9.5 18 21H6L2 9.5Z"></path>'),
+  cover: I('<path d="M9 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9"></path><path d="M9 3 5 5v16h4z"></path><path d="M12.5 8h4.5"></path>'),
   palette: I('<circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>'),
 };
 const TOOLS = [
@@ -30,6 +31,7 @@ const TOOLS = [
   { out: 'zukei-drafter.png', icon: 'zukei', name: '図形作成さん', tag: '数値入力から2D/3D図形を生成', chips: ['PNG・SVG', '教材・プリント向け', 'ブラウザ完結'] },
   { out: 'sku-to-qr.png', icon: 'qr', name: 'QRコードさん', tag: 'SKUから書籍のQRコードを作成', chips: ['東洋館EC用', '印刷用 1600px', 'ブラウザ完結'], hub: false },
   { out: 'moji-counter.png', icon: 'moji', name: '文字数集計さん', tag: '貼るだけで文字数がすぐ分かる', chips: ['改行・空白を除く', '上限までの残り', 'ブラウザ完結'] },
+  { out: 'cover_image.png', icon: 'cover', name: '立体書影さん', tag: 'カバーPDFから、立体書影を作成', chips: ['判型・背幅どおり', '透過PNG', 'ブラウザ完結'] },
   { out: 'color-palette.png', icon: 'palette', name: '配色提案さん', tag: '印象語から配色を探して、AIに渡す', chips: ['24案を比較', 'AI向け指示文', 'ブラウザ完結'] },
 ];
 const css = (F ? `

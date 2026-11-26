@@ -19,6 +19,7 @@
 | 黒板補正さん | 黒板・ホワイトボード写真の傾き補正 | https://edi-tool.github.io/kokuban-adjust/ |
 | 図形作成さん | 数値入力から2D・3D図形を生成しPNG・SVGで保存 | https://edi-tool.github.io/zukei-drafter/ |
 | ページ調整さん | ページ数提案・背幅概算 | https://edi-tool.github.io/page-count/ |
+| 立体書影さん | 展開カバーPDFから判型・背幅どおりの立体書影PNGを作成 | https://edi-tool.github.io/cover_image/ |
 
 ※ 社内用の `sku-to-qr` は `noindex` のため一覧・サイトマップに含めない。
 

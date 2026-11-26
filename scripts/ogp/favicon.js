@@ -1,4 +1,4 @@
-// ハブと9ツール（社内向けの QRコードさんを含む）のファビコンを生成する。蛍光オレンジの角丸に、ハブのカードと同じ線のアイコンを墨で載せる。
+// ハブと10ツール（社内向けの QRコードさんを含む）のファビコンを生成する。蛍光オレンジの角丸に、ハブのカードと同じ線のアイコンを墨で載せる。
 // 使い方は scripts/ogp/README.md を参照。出力先: scripts/ogp/out/favicon/<リポジトリ名>/
 //   favicon.svg（主）・favicon.ico（16/32/48）・favicon.png（192）・apple-touch-icon.png（180、角丸なし）
 //   黒板補正さんだけ icon-192.png・icon-512.png（manifest.json 用）も出す。
@@ -17,6 +17,7 @@ const ICONS = {
   'kanji-checker': '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
   'hyoki-checker': '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
   'moji-counter': '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/>',
+  'cover_image': '<path d="M9 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9"/><path d="M9 3 5 5v16h4z"/><path d="M12.5 8h4.5"/>',
   'color-palette': '<circle cx="13.5" cy="6.5" r="1.2" fill="currentColor"/><circle cx="17.5" cy="10.5" r="1.2" fill="currentColor"/><circle cx="8.5" cy="7.5" r="1.2" fill="currentColor"/><circle cx="6.5" cy="12.5" r="1.2" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',
   'kokuban-adjust': '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m7 13 3-3 2 2 4-4"/>',
   'page-count': '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
