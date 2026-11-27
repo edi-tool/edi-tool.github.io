@@ -1,5 +1,12 @@
 # 進捗: edi-tool 組織ルートサイト
 
+## 2026-11-27 セッション（ライセンス統一・帰属表示）
+
+- 現行リポジトリの独自コードを Apache License 2.0、独自マニュアル・解説を CC BY 4.0、名称・ロゴを権利留保とする方針に統一。第三者ライセンスと過去版の許諾は維持。
+- 公開サイトのフッターのライセンスリンクは Apache 2.0 公式 URL のみに簡素化。NOTICE はリポジトリ側に保持。独自 HTML・JS に SPDX・著作権者・開発元のコメントを追加。
+- 11 リポジトリのデフォルトブランチの index.html を再取得し表示・コメントを確認。file-viewer は PR #9 で未マージ。
+- 詳細・コミット・第三者ライセンスの監査と残課題は [組織共通の作業記録](https://github.com/edi-tool/.github/blob/main/records/2026-11-27-licensing.md) に集約。全サイトの本番配信と CI・ブラウザ動作は未確認。残課題は同記録から引き継ぐ。
+
 ## 2026-11-06 セッション（検索対策）
 
 - Search Console（https://edi-tool.github.io/ の URL プレフィックス、認証ファイル `googled180bd734463e748.html`）を確認。送信済みのサイトマップは 2026-04 の旧 `/edu-kanji-checker/sitemap.xml`・`/kanji-checker/sitemap.xml`・`/page-count/sitemap.xml`（いずれも取得不可）だけで、ルートの `/sitemap.xml` は未送信だった。インデックス登録済みはハブ・ページ調整さん・常用漢字さん・教育漢字さんの4件。
